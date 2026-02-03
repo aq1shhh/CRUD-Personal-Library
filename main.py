@@ -41,10 +41,6 @@ with app.app_context():
 
 
 
-
-all_books = []
-
-
 @app.route('/')
 def home():
     return render_template('index.html')
