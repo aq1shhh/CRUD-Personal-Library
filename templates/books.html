@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<table border="1">
+    {% if not books: %}
+        <h1> Library is empty</h1>
+    {% else %}
+
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.rating }}</td>
+                <td><a href="{{ url_for('edit_rating',index=book.id) }}"> Edit Rating</a></td>
+                <td><a href="{{ url_for('delete',index=book.id) }}"> Delete </a> </td>
+            </tr>
+            {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
