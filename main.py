@@ -105,7 +105,7 @@ def delete(index):
             db.session.delete(to_delete)
             db.session.commit()
         else:
-            flash("Error couldnt delete")
+            flash("Error couldn't delete")
 
         return redirect(url_for('books'))
 
