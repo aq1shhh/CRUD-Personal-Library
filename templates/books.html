@@ -25,7 +25,7 @@
                 <td>{{ book.title }}</td>
                 <td>{{ book.author }}</td>
                 <td>{{ book.rating }}</td>
-                <td><a href="{{ book.book_lonk }}"> Book Link</a> </td>
+                <td><a href="{{ book.book_link }}"> Book Link</a> </td>
                 <td><a href="{{ url_for('edit_rating',index=book.id) }}"> Edit Rating</a></td>
                 <td><a href="{{ url_for('delete',index=book.id) }}"> Delete </a> </td>
             </tr>
