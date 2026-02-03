@@ -91,7 +91,7 @@ def edit_rating(index):
             flash("Rating edited succesfully")
 
         else:
-            flash("UNSCUESSFUL TRY AGAIN")
+            flash("UNSUCCESSFUL TRY AGAIN")
         return redirect(url_for('books', books=post))
 
     return render_template("edit_rating.html",books=post)
