@@ -34,6 +34,7 @@ class library(db.Model):
     title:Mapped[str]=mapped_column(String,unique=True,nullable=False)
     author:Mapped[str]=mapped_column(String,nullable=False)
     rating:Mapped[float]=mapped_column(Float)
+    book_link:Mapped[str]=mapped_column(String)
 
 with app.app_context():
     db.create_all()
