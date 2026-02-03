@@ -56,7 +56,8 @@ def add():
         with app.app_context():
             new_book=library(title=request.form["bookname"],
                              author=request.form["author"],
-                             rating=request.form['rating'])
+                             rating=request.form['rating'],
+                             book_link=request.form['book_link'])
             db.session.add(new_book)
             db.session.commit()
 
