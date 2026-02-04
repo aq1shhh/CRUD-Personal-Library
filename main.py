@@ -55,7 +55,7 @@ def add():
                              rating=request.form['rating'],
                              book_link=request.form['book_link'])
             if library.title:
-                flash("this book already exists")
+                return """<h1>this book already exists</h1>"""
             else:
                 db.session.add(new_book)
                 db.session.commit()
