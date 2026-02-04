@@ -49,12 +49,14 @@ def home():
 @app.route("/add",methods=["GET","POST"])
 def add():
     if request.method=="POST":
-        with app.app_context():
+        with (app.app_context()):
             new_book=library(title=request.form["bookname"],
                              author=request.form["author"],
                              rating=request.form['rating'],
                              book_link=request.form['book_link'])
-            if library.title:
+            existing_book=db.session.execute(db.select(library).where(library.title==request.form["bookname"])
+                                             ).scalar_one_or_none()
+            if existing_book:
                 return """<h1>this book already exists</h1>"""
             else:
                 db.session.add(new_book)
