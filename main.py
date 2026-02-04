@@ -54,8 +54,11 @@ def add():
                              author=request.form["author"],
                              rating=request.form['rating'],
                              book_link=request.form['book_link'])
-            db.session.add(new_book)
-            db.session.commit()
+            if library.title:
+                flash("this book already exists")
+            else:
+                db.session.add(new_book)
+                db.session.commit()
 
         post=library.query.all()
 
